@@ -63,4 +63,10 @@ public class Corruption implements Serializable {
         permanent++;
     }
 
+    @Override
+    public String toString() {
+        return "## Corruption\n" +
+                "\n- current: " + current +
+                "\n- permanent: " + permanent;
+    }
 }
