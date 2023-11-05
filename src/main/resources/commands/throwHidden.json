@@ -1,0 +1,12 @@
+{
+  "name": "throwhidden",
+  "description": "Lance un dé comme /throw, mais visible uniquement par l'utilisateur",
+  "options": [
+    {
+      "name": "dés",
+      "description": "Les dés à lancer",
+      "type": 3,
+      "required": true
+    }
+  ]
+}
