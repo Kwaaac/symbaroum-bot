@@ -7,7 +7,6 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class Main {
