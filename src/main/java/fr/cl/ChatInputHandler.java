@@ -1,25 +1,23 @@
 package fr.cl;
 
 import discord4j.core.event.domain.interaction.ChatInputInteractionEvent;
-import discord4j.core.object.command.ApplicationCommandInteractionOption;
 import discord4j.core.spec.InteractionApplicationCommandCallbackReplyMono;
-import discord4j.gateway.ShardInfo;
 import reactor.core.publisher.Mono;
 
 import java.util.NoSuchElementException;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.regex.Matcher;
 
 public class ChatInputHandler {
 
     public Mono<Void> handleEvent(ChatInputInteractionEvent event) {
         Function<ChatInputInteractionEvent, InteractionApplicationCommandCallbackReplyMono> defaultReponse = ev -> ev.reply("Oulah, y'a eu une bille, contacte Maxime").withEphemeral(true);
+        
         try {
             return switch (event.getCommandName()) {
                 case "greet" -> greet(event);
                 case "throw" -> throwDice(event);
-                case "throwhidden" ->throwDiceHidden(event);
+                case "throwhidden" -> throwDiceHidden(event);
                 default -> defaultReponse.apply(event);
             };
         } catch (NoSuchElementException e) {
@@ -43,7 +41,7 @@ public class ChatInputHandler {
         }
 
         Matcher matcher = Dice.pattern.matcher(dice);
-        if (!matcher.find()) return event.reply("Le lancer ne respecte pas la convention").withEphemeral(true );
+        if (!matcher.find()) return event.reply("Le lancer ne respecte pas la convention").withEphemeral(true);
         var die = Dice.createFromMatcher(matcher);
 
         return event.reply("> " + die + "\n" + die.throwDice());
@@ -60,7 +58,7 @@ public class ChatInputHandler {
         }
 
         Matcher matcher = Dice.pattern.matcher(dice);
-        if (!matcher.find()) return event.reply("Le lancer ne respecte pas la convention").withEphemeral(true );
+        if (!matcher.find()) return event.reply("Le lancer ne respecte pas la convention").withEphemeral(true);
         var die = Dice.createFromMatcher(matcher);
 
         return event.reply("> " + die + "\n" + die.throwDice()).withEphemeral(true);
