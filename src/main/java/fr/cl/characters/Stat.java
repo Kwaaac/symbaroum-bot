@@ -2,11 +2,12 @@ package fr.cl.characters;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 
 /**
  * Représente les statistiques de compétences d'un {@link Character}
  */
-public class Stats {
+public class Stat {
 
     private final HashMap<Skill, Integer> stats = new HashMap<>();
 
@@ -46,6 +47,7 @@ public class Stats {
      * @param value nouvelle valeur
      */
     public void updateStat(Skill skill, int value) {
+        Objects.checkIndex(value, 21);
         stats.put(skill, value);
     }
 
@@ -56,6 +58,13 @@ public class Stats {
      */
     public void updateStat(String skill, int value) {
         stats.put(Skill.valueOf(skill), value);
+    }
+
+    /**
+     * @param consumer
+     */
+    public void forEach(BiConsumer<Skill, Integer> consumer) {
+        stats.forEach(consumer);
     }
 
     /**
