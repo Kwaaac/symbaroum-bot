@@ -20,12 +20,13 @@ public class Endurance {
      */
     private int douleur;
 
-    public Endurance(int maximum) {
+    public Endurance(int maximum, int douleur) {
         if (maximum < 1) {
             throw new IllegalArgumentException("La vie ne peut pas être à 0 ou moins");
         }
 
         this.maximum = maximum;
+        this.douleur = douleur;
         this.current = maximum;
     }
 
