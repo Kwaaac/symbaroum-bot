@@ -11,6 +11,10 @@ public class Corruption implements Serializable {
     private int current;
     private int permanent;
 
+    public Corruption(int permanent) {
+        if (permanent < 0) throw new IllegalArgumentException("La corruption ne peut pas être négative");
+        this.permanent = permanent;
+    }
 
     /**
      * Incrémente la corruption courante, s'il elle atteint 8, la corruption permanente augmente de 1

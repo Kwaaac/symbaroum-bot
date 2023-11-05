@@ -75,4 +75,5 @@ public class Endurance {
         return douleur > damage;
     }
 
+
 }
