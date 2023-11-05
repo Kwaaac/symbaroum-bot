@@ -1,0 +1,12 @@
+{
+  "name": "throw",
+  "description": "Lance un dé avec la convention suivante: 1d6+1 -> lance 1 dés à 6 faces et ajoute 1 au résultat",
+  "options": [
+    {
+      "name": "dés",
+      "description": "Les dés à lancer",
+      "type": 3,
+      "required": true
+    }
+  ]
+}
