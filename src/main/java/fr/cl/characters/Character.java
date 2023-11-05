@@ -56,14 +56,15 @@ public class Character {
 
     @Override
     public String toString() {
-        return "# Personnage de " + player + "\n" +
+
+        return "# Personnage de " + player + "\n\n" +
                 "## Données" +
                 "\n- name: " + name +
                 "\n- race: " + race +
-                "\n- archetype: " + archetype +
-                "\n- carriere: " + carriere +
-                "\n- ombre: " + ombre +
-                "\n- phrase type='" + phraseType + '\'' +
+                "\n- archetype: " + (archetype == null ? "" : archetype) +
+                "\n- carriere: " + (carriere == null ? "" : carriere) +
+                "\n- ombre: " + (ombre == null ? "" : ombre) +
+                "\n- phrase type: " + (phraseType == null ? "" : phraseType) +
                 "\n" + endurance +
                 "\n" + corruption +
                 "\n" + stat;
