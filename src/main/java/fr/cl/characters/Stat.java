@@ -1,6 +1,6 @@
 package fr.cl.characters;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
@@ -9,7 +9,7 @@ import java.util.function.BiConsumer;
  */
 public class Stat {
 
-    private final HashMap<Skill, Integer> stats = new HashMap<>();
+    private final LinkedHashMap<Skill, Integer> stats = new LinkedHashMap<>();
 
     /**
      * Récupère la valeur de la compétence donnée en paramètre
@@ -70,7 +70,8 @@ public class Stat {
     @Override
     public String toString() {
         var sb = new StringBuilder("\n").append("## Statistiques générales").append("\n");
-        for (var entry : stats.entrySet()) {
+
+        for (var entry : stats.sequencedEntrySet()) {
             sb.append("\n- ").append(entry.getKey()).append(": ").append(entry.getValue());
         }
 
