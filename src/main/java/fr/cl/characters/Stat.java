@@ -67,6 +67,16 @@ public class Stat {
         stats.forEach(consumer);
     }
 
+    @Override
+    public String toString() {
+        var sb = new StringBuilder("## Statistiques générales").append("\n");
+        for (var entry : stats.entrySet()) {
+            sb.append("\n- ").append(entry.getKey()).append(": ").append(entry.getValue());
+        }
+
+        return sb.toString();
+    }
+
     /**
      * Enumaration des compétences de Symbaroum
      */
