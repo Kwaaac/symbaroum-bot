@@ -37,7 +37,7 @@ public class Stat {
      */
     public int getStat(String skill) {
         Objects.requireNonNull(skill);
-        return getStat(Skill.valueOf(skill));
+        return getStat(Skill.valueOf(skill.toUpperCase()));
     }
 
     /**
@@ -57,7 +57,7 @@ public class Stat {
      * @throws IllegalArgumentException Si la compétence n'existe pas
      */
     public void updateStat(String skill, int value) {
-        stats.put(Skill.valueOf(skill), value);
+        stats.put(Skill.valueOf(skill.toUpperCase()), value);
     }
 
     /**
@@ -69,7 +69,7 @@ public class Stat {
 
     @Override
     public String toString() {
-        var sb = new StringBuilder("## Statistiques générales").append("\n");
+        var sb = new StringBuilder("\n").append("## Statistiques générales").append("\n");
         for (var entry : stats.entrySet()) {
             sb.append("\n- ").append(entry.getKey()).append(": ").append(entry.getValue());
         }

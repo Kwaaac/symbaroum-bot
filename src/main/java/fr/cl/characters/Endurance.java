@@ -77,7 +77,7 @@ public class Endurance {
 
     @Override
     public String toString() {
-        return "## Statistiques de base\n" +
+        return "\n## Statistiques de base\n" +
                 "\n- Endurance maximum: " + maximum +
                 "\n- Endurance actuelle: " + current +
                 "\n- Seuil de douleur: " + douleur;
