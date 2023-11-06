@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 
-public class ThrowDiceStategy implements CommandStrategy {
+public class ThrowDiceStategy implements CommandEventStrategy {
 
     private final boolean ephemeral;
 
@@ -24,13 +24,13 @@ public class ThrowDiceStategy implements CommandStrategy {
         var optModificateur = event.getOption("modificateur");
 
         if (optModificateur.isPresent()) {
-            mod = Integer.parseInt(optModificateur.get().getValue().orElseThrow().getRaw());
+            mod = Integer.parseInt(optModificateur.get().getValue().orElseThrow().getRaw()) * -1;
         }
 
         Matcher matcher = Dice.pattern.matcher(dice);
         if (!matcher.find()) return event.reply("Le lancer ne respecte pas la convention").withEphemeral(true);
         var die = Dice.createFromMatcher(matcher);
 
-        return event.reply("> " + die + " avec un modificateur de +\n" + die.throwDice(mod)).withEphemeral(ephemeral);
+        return event.reply("> " + die + " avec un modificateur de +" + mod + "\n" + die.throwDice(mod)).withEphemeral(ephemeral);
     }
 }

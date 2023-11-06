@@ -1,0 +1,11 @@
+{
+  "name": "fiche",
+  "description": "Affiche la fiche de votre personnage",
+  "options": [
+    {
+      "name": "joueur",
+      "description": "Donne le nom d'un joueur pour afficher sa fiche s'il a un personnage associé",
+      "type": 3
+    }
+  ]
+}
