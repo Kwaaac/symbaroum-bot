@@ -33,49 +33,49 @@
       "required": true
     },
     {
-      "name": "agilite",
+      "name": "cp-agilite",
       "description": "Compétence d'agilité du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "astuce",
+      "name": "cp-astuce",
       "description": "Compétence d'astuce du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "discretion",
+      "name": "cp-discretion",
       "description": "Compétence de discretion du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "force",
+      "name": "cp-force",
       "description": "Compétence de force du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "persuasion",
+      "name": "cp-persuasion",
       "description": "Compétence de persuasion du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "precision",
+      "name": "cp-precision",
       "description": "Compétence de precision du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "vigilance",
+      "name": "cp-vigilance",
       "description": "Compétence de vigilance du personnage",
       "type": 4,
       "required": true
     },
     {
-      "name": "volonte",
+      "name": "cp-volonte",
       "description": "Compétence de volonté du personnage",
       "type": 4,
       "required": true
