@@ -1,27 +1,26 @@
-package fr.cl;
+package fr.cl.commands;
 
 import discord4j.core.event.domain.interaction.ChatInputInteractionEvent;
-import discord4j.core.spec.InteractionApplicationCommandCallbackReplyMono;
+import fr.cl.Dice;
+import fr.cl.commands.strategy.CommandStrategy;
 import reactor.core.publisher.Mono;
 
 import java.util.NoSuchElementException;
-import java.util.function.Function;
 import java.util.regex.Matcher;
 
 public class ChatInputHandler {
 
     public Mono<Void> handleEvent(ChatInputInteractionEvent event) {
-        Function<ChatInputInteractionEvent, InteractionApplicationCommandCallbackReplyMono> defaultReponse = ev -> ev.reply("Oulah, y'a eu une bille, contacte Maxime").withEphemeral(true);
-        
+
+
         try {
             return switch (event.getCommandName()) {
-                case "greet" -> greet(event);
                 case "throw" -> throwDice(event);
                 case "throwhidden" -> throwDiceHidden(event);
-                default -> defaultReponse.apply(event);
+                default -> CommandStrategy.defaultReponse.apply(event);
             };
         } catch (NoSuchElementException e) {
-            return defaultReponse.apply(event);
+            return CommandStrategy.defaultReponse.apply(event);
         }
     }
 
