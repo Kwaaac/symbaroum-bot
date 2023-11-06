@@ -11,7 +11,7 @@ public class Corruption implements Serializable {
     private int current;
     private int permanent;
 
-    public Corruption(int permanent) {
+    Corruption(int permanent) {
         if (permanent < 0) throw new IllegalArgumentException("La corruption ne peut pas être négative");
         this.permanent = permanent;
     }

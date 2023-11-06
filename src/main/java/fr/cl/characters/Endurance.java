@@ -20,7 +20,7 @@ public class Endurance {
      */
     private int douleur;
 
-    public Endurance(int maximum, int douleur) {
+    Endurance(int maximum, int douleur) {
         if (maximum < 1) {
             throw new IllegalArgumentException("La vie ne peut pas être à 0 ou moins");
         }
