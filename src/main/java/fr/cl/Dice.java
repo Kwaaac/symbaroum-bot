@@ -27,12 +27,12 @@ public record Dice(int number, int dice, int mod) {
         return new Dice(number, dice, mod);
     }
 
-    public int throwDice() {
-        return IntStream.range(0, number).map(i -> ThreadLocalRandom.current().nextInt(dice)).sum() + mod;
+    public int throwDice(int modificateur) {
+        return IntStream.range(0, number).map(i -> ThreadLocalRandom.current().nextInt(dice)).sum() + mod + modificateur;
     }
 
     @Override
     public String toString() {
-        return "Lancer de " + number + " dés " + dice + (mod == 0 ? "" : " avec un modificateur de +" + mod) + " (" + number + "d" + dice + "+" + mod + ")";
+        return "Lancer de " + number + " dés " + dice + (mod == 0 ? "" : " avec un ajout de +" + mod) + " (" + number + "d" + dice + "+" + mod + ")";
     }
 }
