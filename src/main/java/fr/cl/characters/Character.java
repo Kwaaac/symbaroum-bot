@@ -81,6 +81,14 @@ public class Character {
         private String ombre;
         private String phraseType;
 
+        private CharacterBuilder() {
+            // nothing
+        }
+
+        public static CharacterBuilder newBuilder() {
+            return new CharacterBuilder();
+        }
+
         public CharacterBuilder player(String player) {
             Objects.requireNonNull(player);
             this.player = player;
@@ -167,7 +175,7 @@ public class Character {
             return this;
         }
 
-        public Character build() {
+        public Character build() throws IllegalStateException {
             if (player == null || name == null || race == null || stat == null || corruption == null || endurance == null) {
                 throw new IllegalStateException("Le personnage n'est pas complet");
             }
