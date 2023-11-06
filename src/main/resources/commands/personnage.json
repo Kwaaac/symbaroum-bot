@@ -1,0 +1,104 @@
+{
+  "name": "personnage-creation",
+  "description": "Créer le personnage et l'enregistre",
+  "options": [
+    {
+      "name": "nom",
+      "description": "Nom du personnage",
+      "type": 3,
+      "required": true
+    },
+    {
+      "name": "race",
+      "description": "Race du personnage",
+      "type": 3,
+      "required": true
+    },
+    {
+      "name": "corruption",
+      "description": "Corruption permanente du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "endurance",
+      "description": "Endurance du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "douleur",
+      "description": "Seuil de douleur du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "agilite",
+      "description": "Compétence d'agilité du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "astuce",
+      "description": "Compétence d'astuce du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "discretion",
+      "description": "Compétence de discretion du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "force",
+      "description": "Compétence de force du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "persuasion",
+      "description": "Compétence de persuasion du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "precision",
+      "description": "Compétence de precision du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "vigilance",
+      "description": "Compétence de vigilance du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "volonte",
+      "description": "Compétence de volonté du personnage",
+      "type": 4,
+      "required": true
+    },
+    {
+      "name": "archetype",
+      "description": "Archetype du personnage",
+      "type": 3
+    },
+    {
+      "name": "ombre",
+      "description": "Description de l'ombre du personnage",
+      "type": 3
+    },
+    {
+      "name": "carriere",
+      "description": "Carrière du personnage",
+      "type": 3
+    },
+    {
+      "name": "phrase",
+      "description": "Phrase type du personnage",
+      "type": 3
+    }
+  ]
+}
