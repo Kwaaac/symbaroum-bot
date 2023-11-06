@@ -26,16 +26,16 @@ public class CharacterCreationStrategy implements CommandEventStrategy {
 
             builder
                     .player(event.getInteraction().getMember().orElseThrow().getUsername())
-                    .name(getValue(event, "race").asString())
+                    .name(getValue(event, "nom").asString())
                     .race(getValue(event, "race").asString())
                     .corruption(Integer.parseInt(getValue(event, "corruption").getRaw()))
                     .endurance(enduranceMax, douleur);
 
             // options non required
             event.getOption("archetype").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.archetype(value.asString()));
-            event.getOption("ombre").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.archetype(value.asString()));
-            event.getOption("phrase").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.archetype(value.asString()));
-            event.getOption("carriere").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.archetype(value.asString()));
+            event.getOption("ombre").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.ombre(value.asString()));
+            event.getOption("phrase").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.phraseType(value.asString()));
+            event.getOption("carriere").flatMap(ApplicationCommandInteractionOption::getValue).ifPresent(value -> builder.carriere(value.asString()));
 
             // stats
             var array = event.getOptions().stream().filter(option -> option.getName().startsWith("cp-")).mapToInt(option -> Integer.parseInt(option.getValue().orElseThrow().getRaw())).toArray();

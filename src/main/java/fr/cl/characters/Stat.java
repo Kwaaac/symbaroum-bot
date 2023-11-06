@@ -69,7 +69,7 @@ public class Stat {
 
     @Override
     public String toString() {
-        var sb = new StringBuilder("\n").append("## Statistiques générales").append("\n");
+        var sb = new StringBuilder();
 
         for (var entry : stats.sequencedEntrySet()) {
             sb.append("\n- ").append(entry.getKey()).append(": ").append(entry.getValue());

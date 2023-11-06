@@ -1,5 +1,11 @@
 package fr.cl.characters;
 
+import discord4j.core.spec.EmbedCreateFields;
+import discord4j.core.spec.EmbedCreateSpec;
+import discord4j.rest.util.Color;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -57,15 +63,60 @@ public class Character {
 
         return "# Personnage de " + player + "\n\n" +
                 "## Données" +
-                "\n- name: " + name +
-                "\n- race: " + race +
-                "\n- archetype: " + (archetype == null ? "" : archetype) +
-                "\n- carriere: " + (carriere == null ? "" : carriere) +
-                "\n- ombre: " + (ombre == null ? "" : ombre) +
-                "\n- phrase type: " + (phraseType == null ? "" : phraseType) +
+                infoPersonnage() +
+                "\n## Statistiques de base\n" +
                 "\n" + endurance +
+                "\n## Corruption\n" +
                 "\n" + corruption +
+                "\n## Statistiques générales\n" +
                 "\n" + stat;
+    }
+
+    private String infoPersonnage() {
+        return "\n- Nom: " + name +
+                "\n- Race: " + race +
+                "\n- Archetype: " + (archetype == null ? "" : archetype) +
+                "\n- Carriere: " + (carriere == null ? "" : carriere) +
+                "\n- Ombre: " + (ombre == null ? "" : ombre) +
+                "\n- Phrase type: " + (phraseType == null ? "" : phraseType);
+    }
+
+    private EmbedCreateFields.Field[] infoFieldPersonnage() {
+        List<EmbedCreateFields.Field> lst = new ArrayList<>();
+
+        lst.add(EmbedCreateFields.Field.of("Nom", name, true));
+        lst.add(EmbedCreateFields.Field.of("Race", race, true));
+        if (archetype != null)
+            lst.add(EmbedCreateFields.Field.of("Archetype", archetype, true));
+        if (carriere != null)
+            lst.add(EmbedCreateFields.Field.of("Carrière", carriere, true));
+        if (phraseType != null)
+            lst.add(EmbedCreateFields.Field.of("Phrase Type", phraseType, true));
+        if (ombre != null)
+            lst.add(EmbedCreateFields.Field.of("Ombre", ombre, true));
+
+        return lst.toArray(EmbedCreateFields.Field[]::new);
+    }
+
+    public EmbedCreateSpec embed(String imageURL) {
+        EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                .author("Fiche de personnage de " + player, null, null)
+                .thumbnail(imageURL)
+                .color(Color.RED)
+                .title(name)
+                .description("\u200B")
+                .addField("# Info du personnage", "\u200B", false)
+                .addFields(infoFieldPersonnage())
+                .addField("\u200B", "\u200B", false)
+                .addField("Statistiques générales", "\u200B", false)
+                .addField("Endurance", endurance.toString(), true)
+                .addField("Corruption", corruption.toString(), true)
+                .addField("\u200B", "\u200B", false)
+                .addField("Statistiques des compétences", stat.toString(), false)
+                .footer(phraseType + "- " + name, null)
+                .build();
+
+        return embed;
     }
 
     public static class CharacterBuilder {
